@@ -1,13 +1,15 @@
 <?php
 namespace AgroEgw;
+use EGroupware\Api;
+use AgroEgw\DB;
 
 /**
 * 
 */
-class Api extends \EGroupware\Api
+class FileSystem
 {
 	
 	function __construct(){
-
+		
 	}
 }
