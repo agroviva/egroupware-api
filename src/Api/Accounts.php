@@ -3,11 +3,11 @@
 namespace AgroEgw;
 
 use AgroEgw\DB as DB;
-use EGroupware\Api\Accounts as EGW_Accounts;
+use AgroEgw\Api\Accounts as EGW_Accounts;
 
 class Accounts
 {
-    private static $Accounts;
+    // private static $Accounts;
 
     public static function Self()
     {

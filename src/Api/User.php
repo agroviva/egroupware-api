@@ -2,7 +2,7 @@
 
 namespace AgroEgw\Api;
 
-use EGroupware\Api;
+use AgroEgw\Api;
 
 class User
 {

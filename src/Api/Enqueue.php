@@ -2,7 +2,7 @@
 
 namespace AgroEgw\Api;
 
-use EGroupware\Api\Framework;
+use AgroEgw\Api\Framework;
 
 class Enqueue
 {
