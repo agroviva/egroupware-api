@@ -2,6 +2,9 @@
 
 namespace AgroEgw;
 
+use AgroEgw\Api;
+use AgroEgw\DB;
+
 class Image
 {
     public static function ShowAvatar(int $uid, $image = false)
@@ -21,25 +24,26 @@ class Image
             // if etag parameter given in url, we can allow browser to cache picture via an Expires header
             // different url with different etag parameter will force a reload
             if (isset($_GET['etag'])) {
-                Api\Session::cache_control(30 * 86400);	// cache for 30 days
+                Api\Session::cache_control(30 * 86400); // cache for 30 days
             }
             // if servers send a If-None-Match header, response with 304 Not Modified, if etag matches
             if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
                 header('HTTP/1.1 304 Not Modified');
             } else {
-                header('Content-length: '.bytes($user_data['contact_jpegphoto']));
+                ob_start();
                 echo $user_data['contact_jpegphoto'];
+                $content_length = ob_get_length();
+                $image = ob_get_clean();
+                header('Content-length: '.$content_length);
+                echo $image;
             }
         } else {
             if ($image && is_string($image)) {
                 header("Location: $image");
             } else {
                 header('HTTP/1.0 404 Not Found');
-                die();
             }
-            exit;
-            ob_end_clean();
         }
-        exit();
+        die();
     }
 }
