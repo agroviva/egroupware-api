@@ -2,28 +2,21 @@
 
 namespace AgroEgw;
 
-/**
-* 
-*/
 class Calendar
 {
-	
-	function __construct()
-	{
-		
-	}
+    public function __construct()
+    {
+    }
 
-	public function ReadVacations(){
+    public function ReadVacations()
+    {
+    }
 
-	}
+    public function ReadAllSchedules()
+    {
+    }
 
-	public function ReadAllSchedules(){
-
-	}
-
-	public function ReadSchedules($user){
-
-	}
-
-	
+    public function ReadSchedules($user)
+    {
+    }
 }
