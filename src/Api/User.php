@@ -33,7 +33,7 @@ class User
             $results[] = ['id' => $id, 'label' => $name];
         }
 
-        usort($results, function ($a, $b) use ($query) {
+        usort($results, function($a, $b) use ($query) {
             $a_label = is_array($a['label']) ? $a['label']['label'] : $a['label'];
             $b_label = is_array($b['label']) ? $b['label']['label'] : $b['label'];
 
