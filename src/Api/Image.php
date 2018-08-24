@@ -12,7 +12,6 @@ class Image
         $_GET['cd'] = 'no';
         $GLOBALS['egw_info']['flags']['currentapp'] = Api::appname();
 
-<<<<<<< HEAD
         ob_start();
         include_once '/header.inc.php';
         $user_data = (new DB("SELECT * FROM egw_addressbook WHERE account_id = {$uid}"))->Fetch();
@@ -40,7 +39,6 @@ class Image
             } else {
                 header('HTTP/1.0 404 Not Found');
                 die();
-=======
                     $etag = '"'.$user_data['account_id'].':"';
                     header('Content-type: image/jpeg');
                     header('ETag: '.$etag);
@@ -67,7 +65,6 @@ class Image
                     exit;
                 }
                 ob_end_clean();
->>>>>>> f7a02f64c998166e385581363d603ee55f15a8a6
             }
         }
         exit();
