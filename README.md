@@ -1,4 +1,4 @@
-# AgroEgw
+# EGroupware Api
 
 ## Installation
 
