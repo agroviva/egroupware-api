@@ -25,7 +25,7 @@ class Image
                     // if etag parameter given in url, we can allow browser to cache picture via an Expires header
                     // different url with different etag parameter will force a reload
                     if (isset($_GET['etag'])) {
-                        Api\Session::cache_control(30 * 86400);	// cache for 30 days
+                        Api\Session::cache_control(30 * 86400); // cache for 30 days
                     }
                     // if servers send a If-None-Match header, response with 304 Not Modified, if etag matches
                     if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] === $etag) {
