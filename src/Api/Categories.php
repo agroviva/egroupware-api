@@ -2,30 +2,25 @@
 
 namespace AgroEgw;
 
-/**
-* 
-*/
 class Categories
 {
-	
-	function __construct()
-	{
-		
-	}
+    public function __construct()
+    {
+    }
 
-	static function ReadCategory(){
-		
-	}
+    public static function ReadCategory()
+    {
+    }
 
-	static function Categories(){
+    public static function Categories()
+    {
+    }
 
-	}
+    public function InsertCategory()
+    {
+    }
 
-	public function InsertCategory(){
-
-	}
-
-	public function HasCategory(){
-		
-	}
+    public function HasCategory()
+    {
+    }
 }

@@ -2,36 +2,33 @@
 
 namespace AgroEgw;
 
-/**
-* 
-*/
 class Timesheet
 {
-	static function Last(){
-		
-	}
+    public static function Last()
+    {
+    }
 
-	public function ReadTimesheets($user){
+    public function ReadTimesheets($user)
+    {
+    }
 
-	}
+    public function Read($id)
+    {
+    }
 
-	public function Read($id){
+    public function Insert($user)
+    {
+    }
 
-	}
+    public static function ReadStatus()
+    {
+    }
 
-	public function Insert($user){
+    public static function HasStatus()
+    {
+    }
 
-	}
-
-	static function ReadStatus(){
-
-	}
-
-	static function HasStatus(){
-
-	}
-
-	static function SetStatus(){
-
-	}
+    public static function SetStatus()
+    {
+    }
 }
