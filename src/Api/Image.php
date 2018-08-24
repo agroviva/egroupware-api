@@ -2,9 +2,6 @@
 
 namespace AgroEgw;
 
-use AgroEgw\Api;
-use AgroEgw\DB;
-
 class Image
 {
     public static function ShowAvatar(int $uid, $image = false)
