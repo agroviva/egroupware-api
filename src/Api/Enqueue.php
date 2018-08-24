@@ -1,5 +1,5 @@
 <?php
-namespace AgroEgw;
+namespace AgroEgw\Api;
 use EGroupware\Api\Framework;
 /**
 * 
