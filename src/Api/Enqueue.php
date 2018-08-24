@@ -2,8 +2,6 @@
 
 namespace AgroEgw\Api;
 
-use AgroEgw\Api\Framework;
-
 class Enqueue
 {
     public static function Css(string $file)

@@ -2,8 +2,8 @@
 
 namespace AgroEgw;
 
-use AgroEgw\DB as DB;
 use AgroEgw\Api\Accounts as EGW_Accounts;
+use AgroEgw\DB as DB;
 
 class Accounts
 {
