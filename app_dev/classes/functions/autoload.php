@@ -1,2 +1,2 @@
 <?php
-Include_Once("debug.php");
+include_once 'debug.php';
