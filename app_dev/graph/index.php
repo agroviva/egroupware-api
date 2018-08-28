@@ -1,2 +1,3 @@
 <?php
-Include_Once(__DIR__."/home.php");
+
+include_once __DIR__.'/home.php';
