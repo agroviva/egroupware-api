@@ -1,0 +1,5 @@
+{
+    "require": {
+        "agroviva/egroupware-api": "^1.0"
+    }
+}
