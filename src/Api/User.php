@@ -2,7 +2,10 @@
 
 namespace AgroEgw\Api;
 
-use AgroEgw\Api;
+use EGroupware\Api;
+use AgroEgw\Api\StringCompare;
+use FuzzyWuzzy\Fuzz;
+
 
 class User
 {
@@ -33,12 +36,14 @@ class User
             $results[] = ['id' => $id, 'label' => $name];
         }
 
-        usort($results, function ($a, $b) use ($query) {
+        $fuzz = new Fuzz();
+
+        usort($results, function ($a, $b) use ($query, $fuzz) {
             $a_label = is_array($a['label']) ? $a['label']['label'] : $a['label'];
             $b_label = is_array($b['label']) ? $b['label']['label'] : $b['label'];
 
-            similar_text($query, $a_label, $percent_a);
-            similar_text($query, $b_label, $percent_b);
+            $percent_a = $fuzz->tokenSetRatio($query, $a_label);
+            $percent_b = $fuzz->tokenSetRatio($query, $b_label);
 
             return $percent_a === $percent_b ? 0 : ($percent_a > $percent_b ? -1 : 1);
         });
