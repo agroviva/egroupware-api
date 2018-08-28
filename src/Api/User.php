@@ -3,9 +3,7 @@
 namespace AgroEgw\Api;
 
 use EGroupware\Api;
-use AgroEgw\Api\StringCompare;
 use FuzzyWuzzy\Fuzz;
-
 
 class User
 {

@@ -34,7 +34,8 @@ class DB
         return $output ? $output : false;
     }
 
-    public function LastInsertedId($table, $column){
+    public function LastInsertedId($table, $column)
+    {
         return $this->DB->get_last_insert_id($table, $column);
     }
 
