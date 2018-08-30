@@ -6,7 +6,8 @@
       "library", "php", "php7"
     ],
     "require": {
-        "php": ">=5.6"
+        "php": ">=5.6",
+        "wyndow/fuzzywuzzy": "^0.6.0"
     },
     "license": "MIT",
     "authors": [
