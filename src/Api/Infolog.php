@@ -51,7 +51,7 @@ class Infolog
         if (self::Exists($info_id)) {
             return $info_data;
         } else {
-            throw new Exception("Infolog doesen't exists! at:  AgroEgw\\Api\\Infolog::Update()");
+            throw new \Exception("Infolog doesen't exists! at:  AgroEgw\\Api\\Infolog::Update()");
         }
     }
 
