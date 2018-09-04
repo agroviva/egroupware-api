@@ -7,6 +7,16 @@ use AgroEgw\DB;
 
 class Infolog
 {
+
+    static function Get($info_id){
+        $info_id = (int) $info_id;
+        $infolog = (new DB("
+            SELECT * FROM egw_infolog WHERE info_id = $info_id;
+        "))->Fetch();
+
+        return !empty($infolog) ? (object)$infolog : array();
+    }
+
     public static function New(InfologSchema $info_data)
     {
         $tables = $values = '(';
