@@ -2,9 +2,9 @@
 
 namespace AgroEgw\Api;
 
-use EGroupware\Api;
 use AgroEgw\Api\Infolog\InfologSchema;
 use AgroEgw\DB;
+use EGroupware\Api;
 
 class Infolog
 {
@@ -123,7 +123,8 @@ class Infolog
     {
     }
 
-    static function Config(){
+    public static function Config()
+    {
         return (object) Api\Config::read('infolog');
     }
 }
