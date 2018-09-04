@@ -2,9 +2,9 @@
 
 namespace AgroEgw\Api;
 
+use AgroEgw\Api\Timesheet\TimesheetSchema;
 use AgroEgw\DB;
 use EGroupware\Api;
-use AgroEgw\Api\Timesheet\TimesheetSchema;
 
 class Timesheet
 {
@@ -57,11 +57,13 @@ class Timesheet
         return is_array($timesheet) ? true : false;
     }
 
-    static function statusLabels(){
+    public static function statusLabels()
+    {
         return self::Config()->status_labels;
     }
 
-    static function Config(){
+    public static function Config()
+    {
         return (object) Api\Config::read('timesheet');
     }
 }
