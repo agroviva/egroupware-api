@@ -3,21 +3,20 @@
 namespace AgroEgw;
 
 use AgroEgw\Api\Timesheet\TimesheetSchema;
+use AgroEgw\DB;
 
 class Timesheet
 {
-    public static function Get($ts_id)
-    {
+    static function Get($ts_id){
         $ts_id = (int) $ts_id;
         $timesheet = (new DB("
             SELECT * FROM egw_timesheet WHERE ts_id = $ts_id;
         "))->Fetch();
 
-        return !empty($timesheet) ? (object) $timesheet : [];
+        return !empty($timesheet) ? (object)$timesheet : array();
     }
 
-    public static function New(TimesheetSchema $timesheet)
-    {
+    static function New(TimesheetSchema $timesheet){
         $tables = $values = '(';
         $i = 0;
         $count = count((array) $timesheet);
@@ -44,8 +43,8 @@ class Timesheet
         }
     }
 
-    public static function Update()
-    {
+    static function Update(){
+
     }
 
     public static function Exists(int $id)

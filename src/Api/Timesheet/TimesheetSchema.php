@@ -4,13 +4,13 @@ namespace AgroEgw\Api\Timesheet;
 
 class TimesheetSchema
 {
-    public $ts_project = null;
+    public $ts_project = NULL;
     public $ts_title;
-    public $ts_description = null;
+    public $ts_description = NULL;
     public $ts_start;
     public $ts_duration = 0;
     public $ts_quantity;
-    public $ts_unitprice = null;
+    public $ts_unitprice = NULL;
     public $cat_id = 0;
     public $ts_owner;
     public $ts_modified;
