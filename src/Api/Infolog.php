@@ -47,7 +47,7 @@ class Infolog
     }
 
     public static function Update(int $info_id, InfologSchema $info_data)
-    {   
+    {
         if (self::Exists($info_id)) {
             return $info_data;
         } else {
@@ -88,9 +88,10 @@ class Infolog
 
     public static function defaultStatus($info_type)
     {
-       $info_statuses = self::Config()->status; 
-       $defaults = $info_statuses["defaults"];
-       return !empty($defaults[$info_type]) ? $defaults[$info_type] : "";
+        $info_statuses = self::Config()->status;
+        $defaults = $info_statuses['defaults'];
+
+        return !empty($defaults[$info_type]) ? $defaults[$info_type] : '';
     }
 
     public static function Config()
