@@ -2,6 +2,7 @@
 
 namespace AgroEgw\Api;
 
+use EGroupware\Api;
 use AgroEgw\Api\Infolog\InfologSchema;
 use AgroEgw\DB;
 
@@ -96,24 +97,14 @@ class Infolog
 
     public static function InfoTypes()
     {
-        $info_types = (new DB(
-            "SELECT * FROM `egw_config` 
-			WHERE `config_app` LIKE 'infolog' AND `config_name` LIKE 'types'")
-        )->Fetch()['config_value'];
-
-        $info_types = json_decode($info_types, true);
+        $info_types = self::Config()->types;
 
         return is_array($info_types) ? $info_types : [];
     }
 
     public static function InfoStatus()
     {
-        $info_statuses = (new DB(
-            "SELECT * FROM `egw_config` 
-            WHERE `config_app` LIKE 'infolog' AND `config_name` LIKE 'status'")
-        )->Fetch()['config_value'];
-
-        $info_statuses = json_decode($info_statuses, true);
+        $info_statuses = self::Config()->status;
 
         if (is_array($info_statuses)) {
             foreach ($info_statuses as $info_key => $info_type) {
@@ -130,5 +121,9 @@ class Infolog
 
     public static function getDefaultStatus($info_type)
     {
+    }
+
+    static function Config(){
+        return (object) Api\Config::read('infolog');
     }
 }

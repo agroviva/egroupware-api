@@ -1,7 +1,9 @@
 <?php
 
-namespace AgroEgw;
+namespace AgroEgw\Api;
 
+use AgroEgw\DB;
+use EGroupware\Api;
 use AgroEgw\Api\Timesheet\TimesheetSchema;
 
 class Timesheet
@@ -50,8 +52,16 @@ class Timesheet
 
     public static function Exists(int $id)
     {
-        $infolog = (new DB("SELECT * FROM `egw_timesheet` WHERE `info_id` = $id"))->Fetch();
+        $timesheet = (new DB("SELECT * FROM `egw_timesheet` WHERE `info_id` = $id"))->Fetch();
 
-        return is_array($infolog) ? true : false;
+        return is_array($timesheet) ? true : false;
+    }
+
+    static function statusLabels(){
+        return self::Config()->status_labels;
+    }
+
+    static function Config(){
+        return (object) Api\Config::read('timesheet');
     }
 }
