@@ -2,10 +2,10 @@
 
 namespace AgroEgw\Api;
 
-use EGroupware\Api;
-use FuzzyWuzzy\Fuzz;
-use EGroupware\Api\Accounts;
 use AgroEgw\DB;
+use EGroupware\Api;
+use EGroupware\Api\Accounts;
+use FuzzyWuzzy\Fuzz;
 
 class User
 {
