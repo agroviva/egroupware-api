@@ -47,42 +47,9 @@ class Infolog
     }
 
     public static function Update(int $info_id, InfologSchema $info_data)
-    {
-        $info_type = $info_data->info_type;
-        $info_from = $info_data->info_from;
-        $info_addr = $info_data->info_addr;
-        $info_subject = $info_data->info_subject;
-        $info_des = $info_data->info_des;
-        $info_owner = $info_data->info_owner;
-        $info_responsible = $info_data->info_responsible;
-        $info_access = $info_data->info_access;
-        $info_cat = $info_data->info_cat;
-        $info_datemodified = $info_data->info_datemodified;
-        $info_startdate = $info_data->info_startdate;
-        $info_enddate = $info_data->info_enddate;
-        $info_id_parent = $info_data->info_id_parent;
-        $info_planned_time = $info_data->info_planned_time;
-        $info_used_time = $info_data->info_used_time;
-        $info_status = $info_data->info_status;
-        $info_confirm = $info_data->info_confirm;
-        $info_modifier = $info_data->info_modifier;
-        $info_link_id = $info_data->info_link_id;
-        $info_priority = $info_data->info_priority;
-        $pl_id = $info_data->pl_id;
-        $info_price = $info_data->info_price;
-        $info_percent = $info_data->info_percent;
-        $info_datecompleted = $info_data->info_datecompleted;
-        $info_location = $info_data->info_location;
-        $info_custom_from = $info_data->info_custom_from;
-        $info_uid = $info_data->info_uid;
-        $info_replanned_time = $info_data->info_replanned_time;
-        $info_cc = $info_data->info_cc;
-        $caldav_name = $info_data->caldav_name;
-        $info_etag = $info_data->info_etag;
-        $info_created = $info_data->info_created;
-        $info_creator = $info_data->info_creator;
-
+    {   
         if (self::Exists($info_id)) {
+            return $info_data;
         } else {
             throw new Exception("Infolog doesen't exists! at:  AgroEgw\\Api\\Infolog::Update()");
         }
@@ -119,8 +86,11 @@ class Infolog
         return is_array($info_statuses) ? $info_statuses : [];
     }
 
-    public static function getDefaultStatus($info_type)
+    public static function defaultStatus($info_type)
     {
+       $info_statuses = self::Config()->status; 
+       $defaults = $info_statuses["defaults"];
+       return !empty($defaults[$info_type]) ? $defaults[$info_type] : "";
     }
 
     public static function Config()
