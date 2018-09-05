@@ -2,6 +2,8 @@
 
 namespace AgroEgw\Api\Timesheet;
 
+use AgroEgw\Api\User;
+
 class TimesheetSchema
 {
     public $ts_project = null;
@@ -15,27 +17,26 @@ class TimesheetSchema
     public $ts_owner;
     public $ts_modified;
     public $ts_modifier;
-    public $pl_id = 0;
-    public $ts_status;
+    public $pl_id = NULL;
+    public $ts_status = NULL;
 
     public function __construct()
     {
         $this->ts_start = time();
+        $this->setDateModified();
+        $this->setOwner();
     }
 
-    public function setOwner(int $uid)
+    public function setOwner(int $uid = 0)
     {
-        if ($uid && $uid != 0) {
-            $this->ts_owner = $uid;
-            $this->ts_modifier = $uid;
-            $this->setDateModified(time());
-        } else {
-            throw new \Exception("Error at: AgroEgw\\Api\\Timesheet\\TimesheetSchema::setOwner($uid)");
-        }
+        $uid = $uid ?: User::Me();
+        $this->ts_owner = $uid;
+        $this->ts_modifier = $uid;
+        $this->setDateModified(time());
     }
 
-    public function setDateModified(int $timestamp)
+    public function setDateModified(int $timestamp = 0)
     {
-        $this->ts_modifier = $timestamp;
+        $this->ts_modified = $timestamp ?: time();
     }
 }

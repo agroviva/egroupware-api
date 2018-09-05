@@ -66,4 +66,22 @@ class Timesheet
     {
         return (object) Api\Config::read('timesheet');
     }
+
+    public static function Categories(){
+        return Categories::Read();
+    }
+
+    public static function LastInsertedId(){
+        $last_infolog = (new DB("SELECT * FROM egw_timesheet ORDER BY ts_id DESC;"))->Fetch();
+        return $last_infolog["ts_id"] ?: 0;
+    }
+
+    public static function Link($appname, $timesheet_id, $ids){
+        if (!is_array($ids)) { $ids = array($ids); }
+        $links = array();
+        foreach ($ids as $id) {
+            $links[] = Link::Create("timesheet", $appname, (int)$timesheet_id, (int)$id);
+        }
+        return $links;
+    }
 }
