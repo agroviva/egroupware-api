@@ -47,7 +47,7 @@ class Infolog
     }
 
     public static function Update(int $info_id, InfologSchema $info_data)
-    {   
+    {
         if (self::Exists($info_id)) {
             return $info_data;
         } else {
@@ -88,9 +88,10 @@ class Infolog
 
     public static function defaultStatus($info_type)
     {
-       $info_statuses = self::Config()->status; 
-       $defaults = $info_statuses["defaults"];
-       return !empty($defaults[$info_type]) ? $defaults[$info_type] : "";
+        $info_statuses = self::Config()->status;
+        $defaults = $info_statuses['defaults'];
+
+        return !empty($defaults[$info_type]) ? $defaults[$info_type] : '';
     }
 
     public static function Config()
@@ -98,17 +99,23 @@ class Infolog
         return (object) Api\Config::read('infolog');
     }
 
-    public static function LastInsertedId(){
-        $last_infolog = (new DB("SELECT * FROM egw_infolog ORDER BY info_id DESC;"))->Fetch();
-        return $last_infolog["info_id"] ?: 0;
+    public static function LastInsertedId()
+    {
+        $last_infolog = (new DB('SELECT * FROM egw_infolog ORDER BY info_id DESC;'))->Fetch();
+
+        return $last_infolog['info_id'] ?: 0;
     }
 
-    public static function Link($appname, $infolog_id, $ids){
-        if (!is_array($ids)) { $ids = array($ids); }
-        $links = array();
-        foreach ($ids as $id) {
-            $links[] = Link::Create("infolog", $appname, (int)$infolog_id, (int)$id);
+    public static function Link($appname, $infolog_id, $ids)
+    {
+        if (!is_array($ids)) {
+            $ids = [$ids];
         }
+        $links = [];
+        foreach ($ids as $id) {
+            $links[] = Link::Create('infolog', $appname, (int) $infolog_id, (int) $id);
+        }
+
         return $links;
     }
 }

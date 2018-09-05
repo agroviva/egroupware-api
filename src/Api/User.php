@@ -78,7 +78,7 @@ class User
         ]);
     }
 
-    public static function Search($query = "")
+    public static function Search($query = '')
     {
         $app = $_REQUEST['app'];
         $type = $_REQUEST['type'];
