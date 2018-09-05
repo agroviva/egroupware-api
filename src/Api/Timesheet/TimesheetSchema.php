@@ -17,8 +17,8 @@ class TimesheetSchema
     public $ts_owner;
     public $ts_modified;
     public $ts_modifier;
-    public $pl_id = NULL;
-    public $ts_status = NULL;
+    public $pl_id = null;
+    public $ts_status = null;
 
     public function __construct()
     {
