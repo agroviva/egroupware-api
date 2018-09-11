@@ -1,6 +1,7 @@
 <?php
 
 namespace AgroEgw;
+
 use common;
 
 class Framework
