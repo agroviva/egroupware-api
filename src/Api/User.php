@@ -78,9 +78,9 @@ class User
         ]);
     }
 
-    public static function Search($query = '', $type = "account", $account_type = "accounts")
+    public static function Search($query = '', $type = 'account', $account_type = 'accounts')
     {
-        $app = $_REQUEST['app'] ?? "addressbook";
+        $app = $_REQUEST['app'] ?? 'addressbook';
         $type = $_REQUEST['type'] ?? $type;
         $query = $_REQUEST['query'] ?? $query;
         $options = [];
@@ -113,7 +113,7 @@ class User
         });
         // switch regular JSON response handling off
         Api\Json\Request::isJSONRequest(false);
-        
+
         return $results;
     }
 }
