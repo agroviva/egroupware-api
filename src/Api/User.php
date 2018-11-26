@@ -78,17 +78,17 @@ class User
         ]);
     }
 
-    public static function Search($query = '')
+    public static function Search($query = '', $type = "account", $account_type = "accounts")
     {
-        $app = $_REQUEST['app'];
-        $type = $_REQUEST['type'];
+        $app = $_REQUEST['app'] ?? "addressbook";
+        $type = $_REQUEST['type'] ?? $type;
         $query = $_REQUEST['query'] ?? $query;
         $options = [];
         $links = [];
         if ($type == 'account') {
             // Only search if a query was provided - don't search for all accounts
             if ($query) {
-                $options['account_type'] = $_REQUEST['account_type'];
+                $options['account_type'] = $_REQUEST['account_type'] ?? $account_type;
                 $links = Api\Accounts::link_query($query, $options);
             }
         } else {
@@ -113,9 +113,7 @@ class User
         });
         // switch regular JSON response handling off
         Api\Json\Request::isJSONRequest(false);
-
-        header('Content-Type: application/json; charset=utf-8');
-        echo json_encode($results);
-        exit;
+        
+        return $results;
     }
 }

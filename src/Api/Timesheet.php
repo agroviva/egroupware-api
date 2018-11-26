@@ -69,7 +69,7 @@ class Timesheet
 
     public static function Categories()
     {
-        return Categories::Read();
+        return Categories::ReadAll("timesheet");
     }
 
     public static function LastInsertedId()
