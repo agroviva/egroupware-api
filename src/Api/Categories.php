@@ -62,11 +62,13 @@ class Categories
     {
         return self::Read(Api\Categories::name2id($name));
     }
-    
+
     /**
-     * Get Color of the category
-     * @param  int    $id [description]
-     * @return [type]     [description]
+     * Get Color of the category.
+     *
+     * @param int $id [description]
+     *
+     * @return [type] [description]
      */
     public static function getColor(int $id)
     {
