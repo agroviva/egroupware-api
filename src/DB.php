@@ -20,6 +20,14 @@ class DB
         return $this;
     }
 
+    public static function Get($query){
+        return (new static($query))->Fetch();
+    }
+
+    public static function GetAll($query){
+        return (new static($query))->FetchAll();
+    }
+
     public function Fetch()
     {
         $output = $this->DB->fetch();

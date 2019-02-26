@@ -8,9 +8,9 @@ class Categories
 {
     public static $Categories;
 
-    public static function init_static()
+    public static function init_static(string $app = "phpgw")
     {
-        self::$Categories = new Api\Categories(0, '');
+        self::$Categories = new Api\Categories(0, $app);
     }
 
     /**
@@ -32,7 +32,7 @@ class Categories
      *
      * @param string $app [If app given it will read only the categories of the app]
      */
-    public static function ReadAll($app = '')
+    public static function ReadAll($app = "phpgw")
     {
         $Categories = new Api\Categories(0, $app);
 
@@ -42,9 +42,9 @@ class Categories
     /**
      * Get the name of the category.
      *
-     * @param [int] $id [Id of the category]
+     * @param int $id [Id of the category]
      *
-     * @return [type] [Name of the category]
+     * @return [Name of the category]
      */
     public static function getName(int $id)
     {
@@ -52,23 +52,9 @@ class Categories
     }
 
     /**
-     * Get Category by giving its name.
-     *
-     * @param [type] $name
-     *
-     * @return [type] Category data
-     */
-    public static function getByName($name)
-    {
-        return self::Read(Api\Categories::name2id($name));
-    }
-
-    /**
-     * Get Color of the category.
-     *
-     * @param int $id [description]
-     *
-     * @return [type] [description]
+     * Get Color
+     * @param  int    $id [description]
+     * @return [type]     [description]
      */
     public static function getColor(int $id)
     {
@@ -76,9 +62,21 @@ class Categories
     }
 
     /**
+     * Get Category by giving its name.
+     *
+     * @param  $name
+     *
+     * @return  Category data
+     */
+    public static function getByName($name)
+    {
+        return self::Read(Api\Categories::name2id($name));
+    }
+
+    /**
      * Create a new Category.
      *
-     * @param [type] $name
+     * @param  $name
      * @param string $description
      * @param string $data        Special Category data like icon or color given in json format {"color":"#aaffaa","icon":""}
      * @param int    $parent      [0] if greater than 0 the category created will be a child
@@ -92,13 +90,13 @@ class Categories
             'parent'      => $parent,
         ];
 
-        return self::$Categories->add($values);
+        return self::$Categories->add($args);
     }
 
     /**
      * [Delete Category].
      *
-     * @param [type] $id            ID of the Category
+     * @param  $id            ID of the Category
      * @param bool   $drop_children [false] If true it will delete the children too
      */
     public static function Delete(int $id, $drop_children = false)
