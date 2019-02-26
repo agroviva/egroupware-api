@@ -20,8 +20,9 @@ class DB
         return $this;
     }
 
-    public static function Run($sql){
-        return (new DB())->Query($sql);
+    public static function Run($sql)
+    {
+        return (new self())->Query($sql);
     }
 
     public static function Get($query)
