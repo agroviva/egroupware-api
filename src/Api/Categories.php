@@ -8,7 +8,7 @@ class Categories
 {
     public static $Categories;
 
-    public static function init_static(string $app = "phpgw")
+    public static function init_static(string $app = 'phpgw')
     {
         self::$Categories = new Api\Categories(0, $app);
     }
@@ -32,7 +32,7 @@ class Categories
      *
      * @param string $app [If app given it will read only the categories of the app]
      */
-    public static function ReadAll($app = "phpgw")
+    public static function ReadAll($app = 'phpgw')
     {
         $Categories = new Api\Categories(0, $app);
 
@@ -52,9 +52,11 @@ class Categories
     }
 
     /**
-     * Get Color
-     * @param  int    $id [description]
-     * @return [type]     [description]
+     * Get Color.
+     *
+     * @param int $id [description]
+     *
+     * @return [type] [description]
      */
     public static function getColor(int $id)
     {
@@ -66,7 +68,7 @@ class Categories
      *
      * @param  $name
      *
-     * @return  Category data
+     * @return Category data
      */
     public static function getByName($name)
     {
@@ -97,7 +99,7 @@ class Categories
      * [Delete Category].
      *
      * @param  $id            ID of the Category
-     * @param bool   $drop_children [false] If true it will delete the children too
+     * @param bool $drop_children [false] If true it will delete the children too
      */
     public static function Delete(int $id, $drop_children = false)
     {
