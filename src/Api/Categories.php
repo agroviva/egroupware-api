@@ -66,7 +66,7 @@ class Categories
     /**
      * Get Category by giving its name.
      *
-     * @param  $name
+     * @param $name
      *
      * @return Category data
      */
@@ -78,7 +78,7 @@ class Categories
     /**
      * Create a new Category.
      *
-     * @param  $name
+     * @param        $name
      * @param string $description
      * @param string $data        Special Category data like icon or color given in json format {"color":"#aaffaa","icon":""}
      * @param int    $parent      [0] if greater than 0 the category created will be a child
@@ -98,7 +98,7 @@ class Categories
     /**
      * [Delete Category].
      *
-     * @param  $id            ID of the Category
+     * @param      $id            ID of the Category
      * @param bool $drop_children [false] If true it will delete the children too
      */
     public static function Delete(int $id, $drop_children = false)
